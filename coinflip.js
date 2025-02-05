@@ -26,8 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         function flipCoin(callback) {
             const coinImageSrc = coinImage.getAttribute('src');
-            const stopProbability = count >= 10 ? 0.2 : 0; // 20% chance to stop after 10 flips
-            const betProbability = coinImageSrc === bet ? stopProbability / 50 : stopProbability;
+            const betProbability = count >= 10 ? (coinImageSrc.includes(bet) ? 0.2 : 0.5) : 0;
 
             if (Math.random() < betProbability) {
                 callback();
