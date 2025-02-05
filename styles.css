@@ -1,3 +1,4 @@
+/* Main */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -40,11 +41,13 @@
     font-weight: bold;
 }
 
+/* coin flip */
 #bet-div {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1ch;;
+    justify-content: center; /* Center items horizontally within bet-div */
+    gap: 1ch;
 }
 
 #bet-txt-h {
@@ -53,4 +56,32 @@
 
 #bet-txt-t {
     outline: .4ch solid #ff0000;
+}
+
+#flipping-button {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: 20%;
+    border-radius: 30px;
+    background-color: #51ff00;
+    border-color: #206600;
+    color: #206600;
+    font-size: 2em;
+}
+
+#flipping-button:hover {
+    opacity: .8;
+}
+
+#flipping-button:active {
+    opacity: .6;
+}
+
+.content {
+    display: flexbox;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
 }

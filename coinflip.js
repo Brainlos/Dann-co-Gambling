@@ -4,34 +4,51 @@ document.addEventListener("DOMContentLoaded", function() {
     const scoreText = document.getElementById('score-text');
     const betTxtH = document.getElementById('bet-txt-h');
     const betTxtT = document.getElementById('bet-txt-t');
+    const clickSound = new Audio('Assets/coin-sound.wav');
     let score = 0;
+    let bet = "tails.png";
 
     betTxtH.addEventListener('click', () => {
         betTxtH.style.outline = "2px solid red";
         betTxtT.style.outline = "2px solid #8a8a8a";
+        bet = "heads.png";
     });
 
     betTxtT.addEventListener('click', () => {
         betTxtT.style.outline = "2px solid red";
         betTxtH.style.outline = "2px solid #8a8a8a";
+        bet = "tails.png";
     });
 
     flippingButton.addEventListener('click', () => {
         let count = 0;
+        clickSound.play();
 
-        function flipCoin() {
-            if (count >= 10 && Math.random() < 0.2) {
+        function flipCoin(callback) {
+            const coinImageSrc = coinImage.getAttribute('src');
+            const stopProbability = count >= 10 ? 0.2 : 0; // 20% chance to stop after 10 flips
+            const betProbability = coinImageSrc === bet ? stopProbability / 50 : stopProbability;
+
+            if (Math.random() < betProbability) {
+                callback();
                 return; // Stop the loop
             }
 
-            const coinImageSrc = coinImage.getAttribute('src');
             const newSrc = coinImageSrc.includes('heads.png') ? 'Assets/tails.png' : 'Assets/heads.png';
             coinImage.setAttribute('src', newSrc);
 
             count++;
-            setTimeout(flipCoin, 200);
+            setTimeout(() => flipCoin(callback), 200);
         }
 
-        flipCoin();
+        flipCoin(() => {
+            const finalSrc = coinImage.getAttribute('src');
+            if (finalSrc.includes(bet)) {
+                score++;
+            } else {
+                score--;
+            }
+            scoreText.innerText = `Score: ${score}`;
+        });
     });
 });
