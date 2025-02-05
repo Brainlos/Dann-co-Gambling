@@ -1,1 +1,56 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
 
+.grid-item {
+    background-color: #ffffff;
+    border: 1px solid #ffee00;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10%;
+}
+
+.button-image {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.image-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    border: none;
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.game-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#bet-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1ch;;
+}
+
+#bet-txt-h {
+    outline: .4ch solid #8a8a8a;
+}
+
+#bet-txt-t {
+    outline: .4ch solid #ff0000;
+}
