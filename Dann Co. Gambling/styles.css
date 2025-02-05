@@ -1,0 +1,87 @@
+/* Main */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: #ffffff;
+    border: 1px solid #ffee00;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10%;
+}
+
+.button-image {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.image-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    border: none;
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.game-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* coin flip */
+#bet-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; /* Center items horizontally within bet-div */
+    gap: 1ch;
+}
+
+#bet-txt-h {
+    outline: .4ch solid #8a8a8a;
+}
+
+#bet-txt-t {
+    outline: .4ch solid #ff0000;
+}
+
+#flipping-button {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: 20%;
+    border-radius: 30px;
+    background-color: #51ff00;
+    border-color: #206600;
+    color: #206600;
+    font-size: 2em;
+}
+
+#flipping-button:hover {
+    opacity: .8;
+}
+
+#flipping-button:active {
+    opacity: .6;
+}
+
+.content {
+    display: flexbox;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
